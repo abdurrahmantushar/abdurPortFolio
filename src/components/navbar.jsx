@@ -11,15 +11,16 @@ export const Navbar = () => {
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
     }
-    setIsOpen(false); 
+    setIsOpen(false); // close mobile menu after click
+  };
 
   return (
     <>
       <nav className="w-full bg-black h-[60px] flex items-center px-6 fixed top-0 left-0 z-50 shadow-md">
-        
+        {/* Logo */}
         <div className="text-white text-xl flex gap-1 sm:text-[18px] md:text-[18px] items-center">
           <RiContactsFill className="mt-1 text-2xl sm:text-[18px] md:text-[18px]" />
-          My Folio
+          My-Folio
         </div>
 
         
