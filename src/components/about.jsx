@@ -1,19 +1,20 @@
 export const About =()=>{
     return(
-        <div className=" h-1px lg:h-[500px] bg-gray-100 flex flex-col items-center py-20 ">
+        <div className=" h-1px lg:h-[500px] bg-black flex flex-col items-center py-20 ">
             
             <div className=" w-full max-w-6xl px-6"> 
                 <div className=" grid grid-cols-12 gap-08 items-start"> 
                     <div className="col-span-3 flex items-start">
-                        <h1 className=" md:text-6xl lg:ml-10 lg:text-3xl text-xl font-bold leading-none tracking-tight text-black ">
+                        <h1 className=" md:text-6xl lg:ml-10 lg:text-4xl text-xl  text-white font-bold leading-none tracking-tight text-black ">
                             ABDUR
                             <br/>
                             RAHMAN
                         </h1> 
+                        
                         </div>
-                             <div className="col-span-9 lg:pl-30 pl-0 ">
-                            <div className="grid grid-cols-2 gap-8 lg:gap-0 text-sm text-gray-700">
-                            <p className=" lg:leading-7 leading-5  text-x"> I am a passionate Frontend Developer specializing in React.js.  
+                             <div className="col-span-9 lg:pl-9 pl-5 ">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-5 text-sm  text-white">
+                            <p className=" lg:leading-7 leading-4  text-x"> I am a passionate Frontend Developer specializing in React.js.  
                 As a fresher developer, I focus on creating clean, responsive,  
                 and user-friendly interfaces. I enjoy turning ideas into  
                 interactive web experiences and constantly improving my skills  

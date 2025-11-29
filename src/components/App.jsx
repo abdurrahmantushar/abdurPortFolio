@@ -26,13 +26,13 @@ export const Components =()=>{
             <section id="about" className=" pt-[60px]">
                 <About/>
             </section>
-            <section id="resume" className="  lg:pt-[5px]">
+            <section id="resume" className="  ">
                 <Resume/>
             </section>
-            <section id="project" className=" lg:pt-[5px]">
+            <section id="project" className=" ">
                 <Projects/>
             </section>
-            <section id="contact" className="pt-[60px]">
+            <section id="contact" className="">
                 <Contact/>
             </section>
         </div>

@@ -8,7 +8,7 @@ import determination from  '../assets/determination.png'
 export const Resume =()=>{
 
     return(
-        <div className="lg:h-[915px] bg-zinc-900 ">
+        <div className="h-[975px] lg:h-[900px] bg-black ">
             <div className=" text-x flex text-yellow-400  p-5 gap-1 ">
                 <RxResume className=" mt-1"/>
                 <p className="  font-mono gap-5 bg-gradient-to-r from-pink-500 to-purple-500 text-transparent bg-clip-text"> Resume</p>

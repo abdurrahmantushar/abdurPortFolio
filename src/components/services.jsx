@@ -9,21 +9,21 @@ export const Services =()=>{
             <p>then you’re in the right place!</p>
         </div>
        <div className="flex flex-cols-2 gap-8 justify-center mt-10 lg:mr-20">
-  <div className="bg-[#1f1f1f] lg:sm:w-[270px] lg:sm:h-[300px] w-[230px] h-[280px] flex flex-col items-center justify-center text-center transform transition-transform duration-400 hover:-translate-y-3 shadow-lg hover:shadow-xl">
+  <div className="bg-[#1f1f1f] lg:sm:w-[270px] lg:sm:h-[300px] w-[200px] h-[250px] ml-3 lg:rounded rounded-2xl flex flex-col items-center justify-center text-center transform transition-transform duration-400 hover:-translate-y-3 shadow-lg hover:shadow-xl">
     <img 
       className="mb-5 h-[50px]"  
       src="https://cdn.prod.website-files.com/61f03747d8d407ed117df27f/61f15296695f17610b51d4f1_services%20logo%201.svg" 
     />
-    <h1 className="font-semibold text-3xl">Front-end Develope</h1>
-    <p className="text-gray-400 mt-3 px-4">Building a clean and responsive web interface using modern React concepts</p>
+    <h1 className="font-semibold lg:text-3xl text-x">Front-end Develope</h1>
+    <p className="text-gray-400 mt-3 text-xs px-4">Building a clean and responsive web interface using modern React concepts</p>
   </div>
 
-  <div className="bg-[#1f1f1f] lg:sm:w-[270px] lg:sm:h-[300px] w-[230px] h-[280px] flex flex-col items-center justify-center text-center transform transition-transform duration-400 hover:-translate-y-3 shadow-lg hover:shadow-xl">
+  <div className="bg-[#1f1f1f] lg:sm:w-[270px] lg:sm:h-[300px] w-[200px] h-[250px] mr-3 lg:rounded rounded-2xl flex flex-col items-center justify-center text-center transform transition-transform duration-400 hover:-translate-y-3 shadow-lg hover:shadow-xl">
     <img 
       className="mb-5 h-[50px]"  
       src="https://cdn.prod.website-files.com/61f03747d8d407ed117df27f/61f15296695f17610b51d4f1_services%20logo%201.svg" 
     />
-    <h1 className="font-semibold text-3xl">Backend Develope</h1>
+    <h1 className="font-semibold lg:text-3xl text-x">Backend Develope</h1>
     <p className="text-gray-400 mt-3 px-4">Coming Soon...</p>
   </div>
 </div>
