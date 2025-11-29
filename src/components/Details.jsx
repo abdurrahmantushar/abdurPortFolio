@@ -14,28 +14,42 @@ export const Body =()=>{
                 </h1>
                 <p className=" mt-6 text-gray-300" > “I’m Abdur — a React Developer passionate about building innovative web apps, aiming to grow into a Full-Stack Developer and create complete solutions.” </p>
             </div>
-<div className="flex-1 flex justify-center items-center">
-  <div className="relative">
-    <div cstyle={{
-        display: "inline-block",
-        animation: "pulseScale 10s ease-in-out infinite",
-      }}>
-    <img
-      src={picture1}
-      alt="profile"
-      className="lg:w-[300px] lg:h-[350px] lg:mr-15 w-[330px] h-[410px] mr- object-cover rounded shadow-sm"
-      style={{
-        filter: `
-          drop-shadow(0 -4px 4px rgba(236,72,153,0.7))   /* Top pink glow */
-          drop-shadow(2px 0 4px rgba(59,130,246,0.7))    /* Right blue glow */
-          drop-shadow(0 1px 4px rgba(34,197,94,0.7))     /* Bottom green glow */
-          drop-shadow(-4px 0 4px rgba(250,204,21,0.7))   /* Left yellow glow */
-        `
-      }}
-    />
-    </div>
-  </div>
-</div>
+              <style>
+        {`
+          @keyframes pulseGlow {
+            0% { 
+              transform: scale(1); 
+              /* Pink and Purple glow */
+              filter: drop-shadow(0 0 6px #EC4899) drop-shadow(0 0 10px #A855F7); 
+            }
+            50% { 
+              transform: scale(1.02); 
+              /* Deeper Pink and Purple glow */
+              filter: drop-shadow(0 0 10px #EC4899) drop-shadow(0 0 20px #A855F7); 
+            }
+            100% { 
+              transform: scale(1); 
+              filter: drop-shadow(0 0 6px #EC4899) drop-shadow(0 0 10px #A855F7); 
+            }
+          }
+          .image-glow-container {
+            animation: pulseGlow 5s ease-in-out infinite;
+          }
+        `}
+      </style>
+<div className="flex justify-center items-center mb-16">
+          <div className="relative">
+
+            <div className="image-glow-container inline-block rounded-xl shadow-lg">
+              <img
+                src={picture1}
+                alt="profile"
+                className="w-[240px] h-[290px] md:w-[350px] md:h-[400px] mr-50 mt-10 object-cover ml-10  rounded-xl border-4 border-transparent"
+                
+              />
+            </div>
+          </div>
+        </div>
 
 
 

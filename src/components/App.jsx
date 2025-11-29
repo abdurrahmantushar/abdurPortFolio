@@ -3,10 +3,9 @@ import { About } from "./about"
 import { Body } from "./Details"
 import { Navbar } from "./navbar"
 import { Services } from "./services"
-import { Resume } from "./resume"
 import { Projects } from "./projects"
 import { Contact } from "./contact"
-
+import {Resume} from './resume'
 export const Components =()=>{
     return(
         <div>
