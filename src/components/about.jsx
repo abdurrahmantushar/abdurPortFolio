@@ -14,14 +14,22 @@ export const About =()=>{
                         </div>
                              <div className="col-span-9 lg:pl-9 pl-5 ">
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-5 text-sm  text-white">
-                            <p className=" lg:leading-7 leading-4  text-x"> I am a passionate Frontend Developer specializing in React.js.  
-                As a fresher developer, I focus on creating clean, responsive,  
-                and user-friendly interfaces. I enjoy turning ideas into  
-                interactive web experiences and constantly improving my skills  
-                through practical projects and real-world problem solving. </p>
-                            <p className=" lg:leading-7 leading-5 text-x lg:text-xs">
-                                My goal is to build modern, optimized, and user-friendly applications using React, Tailwind CSS, and JavaScript. I am passionate about exploring new technologies, writing clean and maintainable code, and collaborating to create meaningful digital products that deliver real value. I am eager to quickly master backend development to broaden my skill set, develop unique and innovative solutions, and continuously stay ahead by learning the latest trends and tools in web development.
-                            </p>
+                            <p className="lg:leading-7 leading-4 text-x">
+  I am a passionate Full Stack MERN Developer with hands-on experience building
+  modern web applications using MongoDB, Express.js, React.js, and Node.js.
+  I enjoy creating responsive user interfaces, developing scalable RESTful APIs,
+  and solving real-world problems through clean, efficient, and maintainable code.
+  I continuously improve my skills by building practical projects and exploring
+  modern web technologies.
+</p>
+                            <p className="lg:leading-7 leading-5 text-x lg:text-xs">
+  My goal is to build scalable, high-performance, and user-centric web
+  applications using the MERN stack. I am passionate about writing clean code,
+  designing efficient backend systems, integrating APIs, and delivering seamless
+  user experiences. I am also exploring AI-powered applications and continuously
+  learning modern tools and best practices to grow as a professional Full Stack
+  Software Engineer.
+</p>
                             </div>
                         <div className=" mt-8">
                             <div className="flex gap-6 text-center items-center">
