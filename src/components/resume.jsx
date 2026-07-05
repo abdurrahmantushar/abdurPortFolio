@@ -31,34 +31,26 @@ const resumeData = {
     ],
     languages: "English (Conversation), Bangla (Native), Hindi, Arabic (Conversation)"
   },
-  strengths: [
-    {
-      id: 1,
-      title: "Problem Solving",
-      description: "Able to analyze complex problems, debug efficiently, and build practical solutions through real-world MERN projects."
-    },
-    {
-      id: 2,
-      title: "Full Stack Development",
-      description:
+strengths: [
+  {
+    id: 1,
+    title: "Problem Solving",
+    description:
+      "Able to analyze complex problems, debug efficiently, and build practical solutions through real-world MERN projects."
+  },
+  {
+    id: 2,
+    title: "Full Stack Development",
+    description:
       "Comfortable building responsive frontend interfaces with React and scalable backend APIs using Node.js and Express.js."
-    },
-    {
-      id: 3,
-      title: "Team Leadership",
-      description: "Can collaborate effectively in group projects and communicate clearly."
-    },
-    {
-      id: 4,
-      title: "Adaptability",
-      description: "Comfortable adopting new tools and technologies fast — learned full-stack ecosystem in a short time."
-    },
-    {
-      id :5,
-      title: "Continuous Learning",
-      description:
+  },
+  {
+    id: 3,
+    title: "Continuous Learning",
+    description:
       "Passionate about learning new technologies, currently exploring AI-driven full-stack development, Next.js, and modern backend architecture."
-  ]
+  }
+]
 };
 
 
