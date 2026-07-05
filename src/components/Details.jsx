@@ -5,14 +5,21 @@ export const Body =()=>{
             <div className=" flex-1">
                 <h1 className=" text-5xl md:text-6xl font-bold leading-tight">
                     <span className="bg-gradient-to-r from-pink-500 to-purple-500 text-transparent bg-clip-text">
-                        Front-end Developer
+                        Full Stack MERN Developer
                     </span>
                     <br/>
                     I build modern &
                     <br/>
-                    high-performance web interfaces
+                     modern web applications
                 </h1>
-                <p className=" mt-6 text-gray-300" > “I’m Abdur — a React Developer passionate about building innovative web apps, aiming to grow into a Full-Stack Developer and create complete solutions.” </p>
+                <p className="mt-6 text-gray-300">
+                    "I'm Abdur — a Full Stack MERN Developer passionate about
+                    building modern web applications with MongoDB, Express.js,
+                    React.js, and Node.js. I enjoy creating responsive user
+                    interfaces, scalable backend APIs, and I'm currently
+                    expanding my expertise into AI-driven full-stack
+                    development."
+                </p>            
             </div>
               <style>
         {`
