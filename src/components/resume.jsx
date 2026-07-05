@@ -42,6 +42,7 @@ const resumeData = {
       title: "Full Stack Development",
       description:
       "Comfortable building responsive frontend interfaces with React and scalable backend APIs using Node.js and Express.js."
+    },
     {
       id: 3,
       title: "Team Leadership",
