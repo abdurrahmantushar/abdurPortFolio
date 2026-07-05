@@ -17,7 +17,7 @@ export const Contact=()=>{
         rel="noopener noreferrer"
         className="hover:text-gray-300 flex gap-1"
             >
-        HiOutlineGlobeAlt className="mt-1" />
+        <HiOutlineGlobeAlt className="mt-1" />
         Portfolio
         </a>
       <a href="https://github.com/abdurrahmantushar" 
