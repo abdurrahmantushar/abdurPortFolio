@@ -25,7 +25,7 @@ export const Projects = () => {
                     </p>
 
                     <a
-                        href="https://abdurpractice.netlify.app/"
+                        href="https://abdur-e-commerce-1.vercel.app/"
                         target="_blank"
                         className="mt-3 inline-block px-3 py-1 bg-black text-white rounded-md text-sm"
                     >
