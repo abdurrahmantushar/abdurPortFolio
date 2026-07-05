@@ -7,10 +7,10 @@ const resumeData = {
   },
   summary: {
     title: "Summary",
-    content: [
-      "Passionate React frontend developer with strong foundation in JavaScript and modern UI design.",
-      "Eager to contribute to real-world projects, grow technical skills, and build clean, efficient, user-friendly web applications."
-    ]
+  content: [
+    "Passionate Full Stack MERN Developer with hands-on experience building scalable web applications using MongoDB, Express.js, React.js, and Node.js.",
+    "Focused on developing clean, maintainable code, responsive user interfaces, RESTful APIs, and continuously exploring AI-driven full-stack development."
+  ]
   },
   education: [
     {
@@ -20,11 +20,14 @@ const resumeData = {
     }
   ],
   skills: {
+    title: "Skills",
     techStack: [
-      "Redux, React Query, React Hooks",
-      "API & Data Handling, Routing",
-      "TanStack Query, Reusable Components",
-      "HTML & Tailwind CSS, CSS (Moderate)"
+    "MongoDB, Express.js, React.js, Node.js",
+    "Next.js, Redux Toolkit, React Query, React Hooks",
+    "REST API, JWT Authentication, API Integration",
+    "JavaScript (ES6+), HTML5, Tailwind CSS, CSS3",
+    "Git & GitHub, Firebase, Vercel, Netlify",
+    "MySQL (Basic), AI API Integration (Learning)"
     ],
     languages: "English (Conversation), Bangla (Native), Hindi, Arabic (Conversation)"
   },
@@ -32,18 +35,28 @@ const resumeData = {
     {
       id: 1,
       title: "Problem Solving",
-      description: "Able to analyze issues logically and debug errors effectively during project development."
+      description: "Able to analyze complex problems, debug efficiently, and build practical solutions through real-world MERN projects."
     },
     {
       id: 2,
+      title: "Full Stack Development",
+      description:
+      "Comfortable building responsive frontend interfaces with React and scalable backend APIs using Node.js and Express.js."
+    {
+      id: 3,
       title: "Team Leadership",
       description: "Can collaborate effectively in group projects and communicate clearly."
     },
     {
-      id: 3,
+      id: 4,
       title: "Adaptability",
       description: "Comfortable adopting new tools and technologies fast — learned React ecosystem in a short time."
-    }
+    },
+    {
+      id :5,
+      title: "Continuous Learning",
+      description:
+      "Passionate about learning new technologies, currently exploring AI-driven full-stack development, Next.js, and modern backend architecture."
   ]
 };
 
