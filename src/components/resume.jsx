@@ -50,7 +50,7 @@ const resumeData = {
     {
       id: 4,
       title: "Adaptability",
-      description: "Comfortable adopting new tools and technologies fast — learned React ecosystem in a short time."
+      description: "Comfortable adopting new tools and technologies fast — learned full-stack ecosystem in a short time."
     },
     {
       id :5,
