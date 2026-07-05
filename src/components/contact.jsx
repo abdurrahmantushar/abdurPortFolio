@@ -1,4 +1,4 @@
-import { HiOutlineMail } from "react-icons/hi";
+import { HiOutlineMail,HiOutlineGlobeAlt } from "react-icons/hi";
 import { FaGithubSquare } from "react-icons/fa";
 import { CiLinkedin } from "react-icons/ci";
 import { FaInstagram } from "react-icons/fa";
