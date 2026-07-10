@@ -55,6 +55,49 @@ export const Projects = () => {
 
         </div>
 
+        {/* XAI Project Card */}
+        <div className="w-full max-w-[350px] bg-white rounded-xl p-4 shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col">
+        
+          <img
+            src={https://drive.google.com/file/d/12R98TPpsA7d9wNfnCxw4j3AbzdJLyx1r/view?usp=sharing} 
+            alt="XAI Project"
+            className="w-full h-48 object-cover rounded-lg"
+          />
+        
+          <h2 className="mt-4 font-semibold text-black text-xl">
+            XAI – Intelligence Workspace ( Front-end )
+          </h2>
+        
+          <p className="text-sm text-gray-600 mt-3 leading-6 flex-grow">
+            A modern AI-powered product experience built with React, Vite, Tailwind CSS,
+            and Framer Motion featuring interactive animations, responsive layouts,
+            dashboard visualization, and smooth user interactions.
+          </p>
+        
+          <div className="flex gap-3 mt-6">
+        
+            <a
+              href="https://xai-frontend-abdur.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 text-center bg-black text-white py-2 rounded-lg text-sm font-medium hover:bg-gray-800 transition"
+            >
+              Live Demo
+            </a>
+        
+            <a
+              href="https://github.com/abdurrahmantushar/Xai-frontend-abdur"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 text-center border border-black text-black py-2 rounded-lg text-sm font-medium hover:bg-black hover:text-white transition"
+            >
+              GitHub
+            </a>
+        
+          </div>
+        
+        </div>
+
       </div>
 
     </div>
