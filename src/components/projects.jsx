@@ -1,5 +1,6 @@
 import { CgDanger } from "react-icons/cg";
 import picture2 from "../assets/picture2.png";
+import XAI project from "../assets/XAi project.png"
 
 export const Projects = () => {
   return (
@@ -59,7 +60,7 @@ export const Projects = () => {
         <div className="w-full max-w-[350px] bg-white rounded-xl p-4 shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col">
         
           <img
-            src={https://drive.google.com/file/d/12R98TPpsA7d9wNfnCxw4j3AbzdJLyx1r/view?usp=sharing} 
+            src={XAI project } 
             alt="XAI Project"
             className="w-full h-48 object-cover rounded-lg"
           />
