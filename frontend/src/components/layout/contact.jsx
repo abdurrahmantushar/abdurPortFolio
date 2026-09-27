@@ -147,7 +147,7 @@ export const Contact = () => {
 
                 <div className="flex flex-wrap gap-3">
                   <motion.a
-                    href="https://abdur-folio.netlify.app/"
+                    href="https://abdur-port-folio.vercel.app/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex h-10 items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 text-xs text-gray-300 transition-all duration-300 hover:-translate-y-1 hover:border-purple-500/30 hover:text-white"
