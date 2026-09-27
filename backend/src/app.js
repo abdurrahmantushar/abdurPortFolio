@@ -2,7 +2,6 @@ import express from "express";
 import cors from "cors";
 import dns from "dns";
 import { ConnectDB } from "./config/Connect_DB.js";
-
 import Study_Route from "./routes/Study_Route.js";
 import Skill_Route from "./routes/Skill_Route.js";
 import Project_Route from "./routes/Project_Route.js";
@@ -27,8 +26,6 @@ app.use(
 
 app.use(express.json());
 
-const PORT = process.env.PORT || 4500;
-
 app.get("/", (req, res) => {
   res.json({
     message: "Portfolio server is running",
@@ -45,6 +42,4 @@ app.use("/api/project-folder", ProjectFolder_Route);
 
 ConnectDB();
 
-app.listen(PORT, () => {
-  console.log("server is running", PORT);
-});
+export default app;
