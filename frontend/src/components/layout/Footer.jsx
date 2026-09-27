@@ -1,4 +1,4 @@
-import { HiOutlineMail, HiOutlineGlobeAlt, HiOutlinePhone } from "react-icons/hi";
+import { HiOutlineMail, HiOutlinePhone } from "react-icons/hi";
 import { FaGithubSquare, FaInstagram } from "react-icons/fa";
 import { CiLinkedin } from "react-icons/ci";
 
@@ -76,16 +76,6 @@ export const Footer = () => {
               </div>
 
               <div className="flex flex-wrap gap-3">
-                <a
-                  href="https://abdur-folio.netlify.app/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex h-10 items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 text-xs text-gray-300 transition-all duration-300 hover:-translate-y-1 hover:border-purple-500/30 hover:bg-purple-500/10 hover:text-white"
-                >
-                  <HiOutlineGlobeAlt className="text-lg text-purple-400" />
-                  Portfolio
-                </a>
-
                 <a
                   href="https://github.com/abdurrahmantushar"
                   target="_blank"
