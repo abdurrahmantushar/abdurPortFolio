@@ -147,17 +147,6 @@ export const Contact = () => {
 
                 <div className="flex flex-wrap gap-3">
                   <motion.a
-                    href="https://abdur-port-folio.vercel.app/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex h-10 items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 text-xs text-gray-300 transition-all duration-300 hover:-translate-y-1 hover:border-purple-500/30 hover:text-white"
-                    {...ContactAnimation.social}
-                  >
-                    <HiOutlineGlobeAlt className="text-lg" />
-                    Portfolio
-                  </motion.a>
-
-                  <motion.a
                     href="https://github.com/abdurrahmantushar"
                     target="_blank"
                     rel="noopener noreferrer"
