@@ -25,6 +25,7 @@ export const ProfessionalProject = () => {
   const [formData, setFormData] = useState({
     title: "",
     description: "",
+     duration: "",
   });
 
   const getFolders = async () => {
@@ -72,6 +73,8 @@ export const ProfessionalProject = () => {
           title: formData.title,
           description: formData.description,
           category: "professional",
+          duration: formData.duration,
+
         },
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -84,6 +87,7 @@ export const ProfessionalProject = () => {
         setFormData({
           title: "",
           description: "",
+          duration: "",
         });
 
         setModalOpen(false);
@@ -202,6 +206,12 @@ export const ProfessionalProject = () => {
                       {folder.description}
                     </p>
 
+                    {folder.duration && (
+                      <p className="mt-4 text-sm font-medium text-gray-400">
+                        Duration: <span className="text-white">{folder.duration}</span>
+                      </p>
+                    )}
+
                     <div className="mt-5 text-sm font-semibold text-purple-400 transition-all duration-300 group-hover:translate-x-1 group-hover:text-pink-400">
                       View Projects →
                     </div>
@@ -282,6 +292,15 @@ export const ProfessionalProject = () => {
                 required
                 rows="5"
                 className="w-full resize-none rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none placeholder:text-gray-500 focus:border-purple-500"
+              />
+
+              <input
+                type="text"
+                name="duration"
+                placeholder="Duration: 25 August 2026 – 26 September 2026"
+                value={formData.duration}
+                onChange={handleChange}
+                className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none placeholder:text-gray-500 focus:border-purple-500"
               />
 
               <button

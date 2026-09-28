@@ -2,12 +2,13 @@ import { ProjectFolder } from "../models/ProjectFolder_Model.js";
 
 export const CreateProjectFolder = async (req, res) => {
   try {
-    const { title, description, category } = req.body;
+    const { title, description, category, duration } = req.body;
 
     const folder = await ProjectFolder.create({
       title,
       description,
       category,
+      duration,
     });
 
     res.status(201).json({
@@ -43,7 +44,7 @@ export const GetProjectFolders = async (req, res) => {
 
 export const UpdateProjectFolder = async (req, res) => {
   try {
-    const { title, description, category } = req.body;
+    const { title, description, category, duration } = req.body;
 
     const folder = await ProjectFolder.findByIdAndUpdate(
       req.params.id,
@@ -51,6 +52,7 @@ export const UpdateProjectFolder = async (req, res) => {
         title,
         description,
         category,
+        duration,
       },
       {
         new: true,

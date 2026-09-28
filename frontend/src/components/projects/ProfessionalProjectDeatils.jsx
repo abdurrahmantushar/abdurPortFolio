@@ -5,6 +5,7 @@ import {
   FaPlus,
   FaTimes,
 } from "react-icons/fa";
+import ReactMarkdown from "react-markdown";
 import { Link, useParams } from "react-router-dom";
 import { Axios } from "../../common/Axios";
 import { SummaryApi } from "../../common/Summry_api";
@@ -25,6 +26,7 @@ const ProfessionalProjectDetails = () => {
     liveLink: "",
     githubLink: "",
     image: null,
+
   });
 
   const getFolder = async () => {
@@ -197,6 +199,11 @@ const ProfessionalProjectDetails = () => {
                 <h1 className="mt-1 text-3xl font-bold sm:text-4xl">
                   {folder.title}
                 </h1>
+                {folder.duration && (
+                  <p className="mt-4 text-sm font-medium  text-purple-400">
+                    Duration: <span className="text-white">{folder.duration}</span>
+                  </p>
+                )}
               </div>
             </div>
 
@@ -214,14 +221,36 @@ const ProfessionalProjectDetails = () => {
 
           <div className="mt-6 max-w-3xl rounded-2xl border border-white/10 bg-white/[0.03] p-6">
             <p className="text-sm font-medium text-purple-400">
-              About This Folder
+              About This Platform Experience
             </p>
 
-            <p className="mt-3 text-sm leading-7 text-gray-400">
-              {folder.description}
-            </p>
+            <div className="mt-3 text-sm leading-7 text-gray-400">
+              <ReactMarkdown
+                components={{
+                  h3: ({ children }) => (
+                    <h3 className="mb-3 mt-6 text-lg font-bold text-white">
+                      {children}
+                    </h3>
+                  ),
+                  p: ({ children }) => (
+                    <p className="mb-4">{children}</p>
+                  ),
+                  ul: ({ children }) => (
+                    <ul className="mb-4 list-disc space-y-2 pl-5">
+                      {children}
+                    </ul>
+                  ),
+                  li: ({ children }) => (
+                    <li>{children}</li>
+                  ),
+                }}
+              >
+                {folder.description}
+              </ReactMarkdown>
+            </div>
           </div>
         </div>
+
 
         {projects.length > 0 ? (
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -230,7 +259,7 @@ const ProfessionalProjectDetails = () => {
                 key={project._id}
                 project={project}
                 onDelete={handleDelete}
-                onEdit={() => {}}
+                onEdit={() => { }}
               />
             ))}
           </div>

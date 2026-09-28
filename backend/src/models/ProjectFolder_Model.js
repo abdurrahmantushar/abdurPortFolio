@@ -15,6 +15,10 @@ const ProjectFolderSchema = new mongoose.Schema(
       required: true,
       enum: ["personal", "professional"],
     },
+    duration: {
+      type: String,
+      default: "",
+    },
   },
   { timestamps: true }
 );
