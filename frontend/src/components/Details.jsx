@@ -37,7 +37,7 @@ export const Body = () => {
       }
     } catch (error) {
       console.log("Hero error:", error);
-    }
+    } 
   };
 
   const handleUpdateHero = async (e) => {
@@ -215,27 +215,27 @@ export const Body = () => {
               <div className="relative">
                 <div className="absolute -inset-4 rounded-[2.2rem] bg-gradient-to-r from-pink-500/20 via-purple-500/30 to-indigo-500/20 blur-2xl" />
 
-                <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] p-2 shadow-2xl shadow-purple-950/30 backdrop-blur-sm">
-                  {imageLoading && (
-                    <div className="absolute inset-2 z-10 flex items-center justify-center rounded-[1.5rem] bg-gray-950">
-                      <div className="relative flex h-14 w-14 items-center justify-center">
-                        <div className="absolute inset-0 animate-ping rounded-full bg-purple-500/20" />
+              <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] p-2 shadow-2xl shadow-purple-950/30 backdrop-blur-sm">
+                {imageLoading && (
+                  <div className="absolute inset-2 z-10 flex items-center justify-center rounded-[1.5rem] bg-gray-950">
+                    <div className="relative flex h-14 w-14 items-center justify-center">
+                      <div className="absolute inset-0 animate-ping rounded-full bg-purple-500/20" />
 
-                        <div className="h-10 w-10 animate-spin rounded-full border-2 border-purple-500/20 border-t-purple-400" />
+                      <div className="h-10 w-10 animate-spin rounded-full border-2 border-purple-500/20 border-t-purple-400" />
 
-                        <div className="absolute h-2 w-2 rounded-full bg-purple-400 shadow-[0_0_15px_rgba(168,85,247,0.9)]" />
-                      </div>
+                      <div className="absolute h-2 w-2 rounded-full bg-purple-400 shadow-[0_0_15px_rgba(168,85,247,0.9)]" />
                     </div>
-                  )}
+                  </div>
+                )}
 
-                  <img
-                    src={hero?.image}
-                    alt="Abdur Rahman"
-                    onLoad={() => setImageLoading(false)}
-                    onError={() => setImageLoading(false)}
-                    className="h-[350px] w-[280px] rounded-[1.5rem] object-cover transition duration-700 hover:scale-105 sm:h-[420px] sm:w-[330px] lg:h-[460px] lg:w-[360px]"
-                  />
-                </div>
+                <img
+                  src={hero?.image}
+                  alt="Abdur Rahman"
+                  onLoad={() => setImageLoading(false)}
+                  onError={() => setImageLoading(false)}
+                  className="h-[350px] w-[280px] rounded-[1.5rem] object-cover transition duration-700 hover:scale-105 sm:h-[420px] sm:w-[330px] lg:h-[460px] lg:w-[360px]"
+                />
+              </div>
 
                 <FloatingGlow duration={6} distance={12}>
                   <div className="absolute -bottom-7 -left-7 z-20 sm:-left-10">
