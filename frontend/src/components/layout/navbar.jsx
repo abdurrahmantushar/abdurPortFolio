@@ -49,7 +49,7 @@ export const Navbar = () => {
   return (
     <>
       <NavbarAnimation scrolled={scrolled}>
-        <div className="mx-auto flex h-[70px] max-w-7xl items-center justify-between px-5 sm:px-8 lg:px-10">
+        <div className="mx-auto flex h-[55px] lg:h-[70px] max-w-7xl items-center justify-between px-5 sm:px-8 lg:px-10">
           <Link to="/">
             <button
               onClick={() => scroll("home")}
@@ -114,13 +114,7 @@ export const Navbar = () => {
           </div>
 
           <div className="hidden items-center gap-3 lg:flex">
-            <Link
-              to="/admin/login"
-              className="flex items-center gap-2 rounded-xl border border-purple-500/20 bg-white/5 px-4 py-2.5 text-sm font-semibold text-gray-300 transition-all duration-300 hover:border-purple-500/40 hover:bg-purple-500/10 hover:text-white"
-            >
-              <FaUserShield className="text-purple-400" />
-              Admin Login
-            </Link>
+
 
             <button
               onClick={() => scroll("contact")}
@@ -182,14 +176,6 @@ export const Navbar = () => {
             </button>
 
             <div className="pt-3">
-              <Link
-                to="/admin/login"
-                onClick={() => setIsOpen(false)}
-                className="flex w-full items-center justify-center gap-2 rounded-xl border border-purple-500/20 bg-white/5 px-5 py-3 text-sm font-semibold text-gray-300 transition-all duration-300 hover:border-purple-500/40 hover:bg-purple-500/10 hover:text-white"
-              >
-                <FaUserShield className="text-purple-400" />
-                Admin Login
-              </Link>
 
               <button
                 onClick={() => scroll("contact")}
