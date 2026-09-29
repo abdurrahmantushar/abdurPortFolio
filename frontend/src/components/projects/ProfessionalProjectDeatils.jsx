@@ -10,6 +10,8 @@ import { Link, useParams } from "react-router-dom";
 import { Axios } from "../../common/Axios";
 import { SummaryApi } from "../../common/Summry_api";
 import ProjectCard from "./projectCard";
+import { ProjectCardAnimation } from "../../animations/ProjectCardAnimation";
+import PageLines from "../../animations/FallingParticles";
 
 const ProfessionalProjectDetails = () => {
   const { folderId } = useParams();
@@ -18,6 +20,7 @@ const ProfessionalProjectDetails = () => {
   const [projects, setProjects] = useState([]);
   const [isAdmin, setIsAdmin] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
+  const [editProject, setEditProject] = useState(null);
 
   const [formData, setFormData] = useState({
     title: "",
@@ -149,6 +152,71 @@ const ProfessionalProjectDetails = () => {
     );
   };
 
+  const handleUpdateProject = async (e) => {
+  e.preventDefault();
+
+  try {
+    const data = new FormData();
+
+    data.append("title", formData.title);
+    data.append("description", formData.description);
+    data.append(
+      "technologies",
+      JSON.stringify(
+        formData.technologies
+          .split(",")
+          .map((tech) => tech.trim())
+          .filter(Boolean)
+      )
+    );
+    data.append("liveLink", formData.liveLink);
+    data.append("githubLink", formData.githubLink);
+    data.append("category", "professional");
+    data.append("folderId", folderId);
+
+    if (formData.image) {
+      data.append("image", formData.image);
+    }
+
+    const res = await Axios({
+      url: `/api/project/${editProject._id}`,
+      method: "put",
+      data,
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    });
+
+    if (res.data.success) {
+      const updatedProject = {
+        ...res.data.data,
+        folderId: { _id: folderId },
+      };
+
+      setProjects((prev) =>
+        prev.map((project) =>
+          project._id === updatedProject._id
+            ? updatedProject
+            : project
+        )
+      );
+
+      setEditProject(null);
+      setModalOpen(false);
+
+      setFormData({
+        title: "",
+        description: "",
+        technologies: "",
+        liveLink: "",
+        githubLink: "",
+        image: null,
+      });
+    }
+  } catch (error) {
+    console.log(error);
+  }
+  };
   if (!folder) {
     return (
       <section className="min-h-screen bg-gradient-to-br from-purple-950 via-gray-950 to-black px-5 py-28 text-white">
@@ -171,6 +239,7 @@ const ProfessionalProjectDetails = () => {
 
   return (
     <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-purple-950 via-gray-950 to-black px-5 py-24 text-white sm:px-8 lg:px-10">
+      <PageLines/>
       <div className="absolute -left-24 top-20 h-72 w-72 rounded-full bg-purple-600/10 blur-3xl" />
 
       <div className="absolute -right-24 bottom-20 h-80 w-80 rounded-full bg-pink-600/10 blur-3xl" />
@@ -254,14 +323,29 @@ const ProfessionalProjectDetails = () => {
 
         {projects.length > 0 ? (
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {projects.map((project) => (
-              <ProjectCard
-                key={project._id}
-                project={project}
-                onDelete={handleDelete}
-                onEdit={() => { }}
-              />
-            ))}
+{projects.map((project, index) => (
+  <ProjectCardAnimation key={project._id} index={index}>
+    <ProjectCard
+      project={project}
+      index={index}
+      onDelete={handleDelete}
+      onEdit={(project) => {
+        setEditProject(project);
+
+        setFormData({
+          title: project.title || "",
+          description: project.description || "",
+          technologies: (project.technologies || []).join(", "),
+          liveLink: project.liveLink || "",
+          githubLink: project.githubLink || "",
+          image: null,
+        });
+
+        setModalOpen(true);
+      }}
+    />
+  </ProjectCardAnimation>
+))}
           </div>
         ) : (
           <div className="rounded-2xl border border-white/10 bg-white/[0.03] px-6 py-14 text-center">
@@ -288,7 +372,7 @@ const ProfessionalProjectDetails = () => {
                 </p>
 
                 <h2 className="mt-1 text-2xl font-bold text-white">
-                  Create Project
+                  {editProject ? "Edit Project" : "Create Project"}
                 </h2>
               </div>
 
@@ -301,7 +385,7 @@ const ProfessionalProjectDetails = () => {
               </button>
             </div>
 
-            <form onSubmit={handleCreateProject} className="space-y-4">
+            <form onSubmit={editProject ? handleUpdateProject : handleCreateProject} className="space-y-4">
               <input
                 type="text"
                 name="title"
@@ -362,17 +446,17 @@ const ProfessionalProjectDetails = () => {
                   name="image"
                   accept="image/*"
                   onChange={handleChange}
-                  required
+                  required={!editProject}
                   className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-gray-400 file:mr-4 file:rounded-lg file:border-0 file:bg-purple-600 file:px-3 file:py-2 file:text-xs file:font-semibold file:text-white hover:file:bg-purple-500"
                 />
               </div>
 
-              <button
-                type="submit"
-                className="w-full rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 px-5 py-3 text-sm font-semibold text-white transition hover:opacity-90"
-              >
-                Create Project
-              </button>
+            <button
+              type="submit"
+              className="w-full rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 px-5 py-3 text-sm font-semibold text-white transition hover:opacity-90"
+            >
+              {editProject ? "Update Project" : "Create Project"}
+            </button>
             </form>
           </div>
         </div>

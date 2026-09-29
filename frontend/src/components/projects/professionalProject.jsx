@@ -15,6 +15,7 @@ import {
   ProfessionalIconAnimation,
   ProfessionalGlowAnimation,
 } from "../../animations/ProfessionalProjectsAnimation";
+import PageLines from "../../animations/FallingParticles";
 
 export const ProfessionalProject = () => {
   const [folders, setFolders] = useState([]);
@@ -121,6 +122,7 @@ export const ProfessionalProject = () => {
 
   return (
     <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-purple-950 via-gray-950 to-black px-5 py-24 text-white sm:px-8 lg:px-10">
+      <PageLines/>
       <ProfessionalGlowAnimation>
         <div className="absolute -left-24 top-20 h-72 w-72 rounded-full bg-purple-600/10 blur-3xl" />
       </ProfessionalGlowAnimation>

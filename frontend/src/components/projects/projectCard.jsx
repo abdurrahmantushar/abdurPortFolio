@@ -4,13 +4,16 @@ import {
   FaExternalLinkAlt,
   FaEdit,
   FaTrash,
+  FaArrowRight,
 } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import { Axios } from "../../common/Axios";
 import {
   ProjectImageAnimation,
   ProjectTechAnimation,
   ProjectButtonAnimation,
 } from "../../animations/ProjectCardAnimation";
+import PageLines from "../../animations/FallingParticles";
 
 const ProjectCard = ({ project, onDelete, onEdit }) => {
   const [isAdmin] = useState(localStorage.getItem("role") === "admin");
@@ -41,6 +44,7 @@ const ProjectCard = ({ project, onDelete, onEdit }) => {
 
   return (
     <div className="group overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] transition-all duration-300 hover:border-purple-500/30 hover:bg-white/[0.05]">
+      <PageLines/>
       <ProjectImageAnimation
         src={project.image}
         alt={project.title}
@@ -68,13 +72,24 @@ const ProjectCard = ({ project, onDelete, onEdit }) => {
           {project.description}
         </p>
 
-        <div className="mt-5 flex items-center gap-3">
+        <div className="mt-5 flex flex-wrap items-center gap-3">
+          <ProjectButtonAnimation>
+    <Link
+      to={`/projects/professional/${project.folderId?._id}/${project._id}`}
+      state={{ project }}
+      className="flex items-center gap-2 rounded-xl bg-purple-600 px-4 py-2.5 text-xs font-semibold text-white transition hover:bg-purple-500"
+    >
+      View More
+      <FaArrowRight size={11} />
+    </Link>
+          </ProjectButtonAnimation>
+
           <ProjectButtonAnimation>
             <a
               href={project.liveLink}
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-2 rounded-xl bg-purple-600 px-4 py-2.5 text-xs font-semibold text-white transition hover:bg-purple-500"
+              className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-xs font-semibold text-gray-300 transition hover:border-purple-500/30 hover:text-white"
             >
               <FaExternalLinkAlt size={11} />
               Live Demo

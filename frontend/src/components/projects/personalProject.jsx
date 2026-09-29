@@ -10,6 +10,7 @@ import {
   PersonalIconAnimation,
   PersonalGlowAnimation,
 } from "../../animations/PersonalProjectsAnimation";
+import PageLines from "../../animations/FallingParticles";
 
 export const PersonalProject = () => {
   const [projects, setProjects] = useState([]);
@@ -115,6 +116,7 @@ export const PersonalProject = () => {
 
   return (
     <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-purple-950 via-gray-950 to-black px-5 py-24 text-white sm:px-8 lg:px-10">
+      <PageLines/>
       <PersonalGlowAnimation>
         <div className="absolute -left-24 top-20 h-72 w-72 rounded-full bg-purple-600/10 blur-3xl" />
       </PersonalGlowAnimation>
