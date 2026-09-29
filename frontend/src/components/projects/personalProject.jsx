@@ -11,11 +11,13 @@ import {
   PersonalGlowAnimation,
 } from "../../animations/PersonalProjectsAnimation";
 import PageLines from "../../animations/FallingParticles";
+import Loading from "../Loading";
 
 export const PersonalProject = () => {
   const [projects, setProjects] = useState([]);
   const [isAdmin, setIsAdmin] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const [formData, setFormData] = useState({
     title: "",
@@ -41,15 +43,12 @@ export const PersonalProject = () => {
       }
     } catch (error) {
       console.log(error);
+    } finally{
+      setLoading(false)
     }
   };
 
-  useEffect(() => {
-    const role = localStorage.getItem("role");
-
-    setIsAdmin(role === "admin");
-    getProjects();
-  }, []);
+ 
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
@@ -113,7 +112,17 @@ export const PersonalProject = () => {
   const handleDelete = (id) => {
     setProjects((prev) => prev.filter((project) => project._id !== id));
   };
+   
+  useEffect(() => {
+    const role = localStorage.getItem("role");
 
+    setIsAdmin(role === "admin");
+    getProjects();
+  }, []);
+  
+  if (loading) {
+  return <Loading />;
+}
   return (
     <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-purple-950 via-gray-950 to-black px-5 py-24 text-white sm:px-8 lg:px-10">
       <PageLines/>

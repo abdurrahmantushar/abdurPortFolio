@@ -12,6 +12,7 @@ import { SummaryApi } from "../../common/Summry_api";
 import ProjectCard from "./projectCard";
 import { ProjectCardAnimation } from "../../animations/ProjectCardAnimation";
 import PageLines from "../../animations/FallingParticles";
+import Loading from "../Loading";
 
 const ProfessionalProjectDetails = () => {
   const { folderId } = useParams();
@@ -21,6 +22,8 @@ const ProfessionalProjectDetails = () => {
   const [isAdmin, setIsAdmin] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [editProject, setEditProject] = useState(null);
+  const [loading, setLoading] = useState(true);
+
 
   const [formData, setFormData] = useState({
     title: "",
@@ -47,7 +50,8 @@ const ProfessionalProjectDetails = () => {
       }
     } catch (error) {
       console.log(error);
-    }
+    } finally{
+      setLoading(false)}
   };
 
   const getProjects = async () => {
@@ -65,7 +69,7 @@ const ProfessionalProjectDetails = () => {
       }
     } catch (error) {
       console.log(error);
-    }
+    } finally{setLoading(false)}
   };
 
   useEffect(() => {
@@ -76,6 +80,7 @@ const ProfessionalProjectDetails = () => {
     getFolder();
     getProjects();
   }, [folderId]);
+
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
@@ -217,6 +222,7 @@ const ProfessionalProjectDetails = () => {
     console.log(error);
   }
   };
+  
   if (!folder) {
     return (
       <section className="min-h-screen bg-gradient-to-br from-purple-950 via-gray-950 to-black px-5 py-28 text-white">
@@ -237,6 +243,10 @@ const ProfessionalProjectDetails = () => {
     );
   }
 
+
+  if(loading){
+    <Loading/>
+  }
   return (
     <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-purple-950 via-gray-950 to-black px-5 py-24 text-white sm:px-8 lg:px-10">
       <PageLines/>

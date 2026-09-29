@@ -16,12 +16,15 @@ import {
   ProfessionalGlowAnimation,
 } from "../../animations/ProfessionalProjectsAnimation";
 import PageLines from "../../animations/FallingParticles";
+import Loading from "../Loading";
 
 export const ProfessionalProject = () => {
   const [folders, setFolders] = useState([]);
   const [isAdmin, setIsAdmin] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [deleteFolderId, setDeleteFolderId] = useState(null);
+    const [loading, setLoading] = useState(true);
+
 
   const [formData, setFormData] = useState({
     title: "",
@@ -44,15 +47,12 @@ export const ProfessionalProject = () => {
       }
     } catch (error) {
       console.log(error);
+    }finally{
+      setLoading(false)
     }
   };
 
-  useEffect(() => {
-    const role = localStorage.getItem("role");
 
-    setIsAdmin(role === "admin");
-    getFolders();
-  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -119,7 +119,17 @@ export const ProfessionalProject = () => {
       console.log(error);
     }
   };
+  
+  useEffect(() => {
+    const role = localStorage.getItem("role");
 
+    setIsAdmin(role === "admin");
+    getFolders();
+  }, []);
+
+  if (loading) {
+  return <Loading />;
+}
   return (
     <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-purple-950 via-gray-950 to-black px-5 py-24 text-white sm:px-8 lg:px-10">
       <PageLines/>
