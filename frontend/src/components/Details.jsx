@@ -22,6 +22,7 @@ export const Body = () => {
   const [image, setImage] = useState(null);
   const [specializingIn, setSpecializingIn] = useState("");
   const [badgeText, setBadgeText] = useState("");
+  const [imageLoading, setImageLoading] = useState(true);
 
   const handleHero = async () => {
     try {
@@ -215,9 +216,23 @@ export const Body = () => {
                 <div className="absolute -inset-4 rounded-[2.2rem] bg-gradient-to-r from-pink-500/20 via-purple-500/30 to-indigo-500/20 blur-2xl" />
 
                 <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] p-2 shadow-2xl shadow-purple-950/30 backdrop-blur-sm">
+                  {imageLoading && (
+                    <div className="absolute inset-2 z-10 flex items-center justify-center rounded-[1.5rem] bg-gray-950">
+                      <div className="relative flex h-14 w-14 items-center justify-center">
+                        <div className="absolute inset-0 animate-ping rounded-full bg-purple-500/20" />
+
+                        <div className="h-10 w-10 animate-spin rounded-full border-2 border-purple-500/20 border-t-purple-400" />
+
+                        <div className="absolute h-2 w-2 rounded-full bg-purple-400 shadow-[0_0_15px_rgba(168,85,247,0.9)]" />
+                      </div>
+                    </div>
+                  )}
+
                   <img
                     src={hero?.image}
                     alt="Abdur Rahman"
+                    onLoad={() => setImageLoading(false)}
+                    onError={() => setImageLoading(false)}
                     className="h-[350px] w-[280px] rounded-[1.5rem] object-cover transition duration-700 hover:scale-105 sm:h-[420px] sm:w-[330px] lg:h-[460px] lg:w-[360px]"
                   />
                 </div>
@@ -246,22 +261,22 @@ export const Body = () => {
                   </div>
                 </FloatingGlow>
 
-<div className="absolute -right-3 -top-4 z-20 sm:-right-6 sm:-top-5">
-  <FloatingGlow duration={4} distance={8}>
-    <div className="rounded-2xl border border-pink-400/30 bg-[#09090d]/95 px-4 py-2.5 shadow-2xl shadow-pink-500/20 backdrop-blur-xl">
-      <div className="flex items-center gap-2.5">
-        <span className="relative flex h-2.5 w-2.5">
-          <span className="absolute h-full w-full animate-ping rounded-full bg-pink-400 opacity-60" />
-          <span className="relative h-2.5 w-2.5 rounded-full bg-pink-400 shadow-lg shadow-pink-500/70" />
-        </span>
+                <div className="absolute -right-3 -top-4 z-20 sm:-right-6 sm:-top-5">
+                  <FloatingGlow duration={4} distance={8}>
+                    <div className="rounded-2xl border border-pink-400/30 bg-[#09090d]/95 px-4 py-2.5 shadow-2xl shadow-pink-500/20 backdrop-blur-xl">
+                      <div className="flex items-center gap-2.5">
+                        <span className="relative flex h-2.5 w-2.5">
+                          <span className="absolute h-full w-full animate-ping rounded-full bg-pink-400 opacity-60" />
+                          <span className="relative h-2.5 w-2.5 rounded-full bg-pink-400 shadow-lg shadow-pink-500/70" />
+                        </span>
 
-        <span className="text-xs font-semibold tracking-wide text-pink-100">
-          {hero?.badgeText}
-        </span>
-      </div>
-    </div>
-  </FloatingGlow>
-</div>
+                        <span className="text-xs font-semibold tracking-wide text-pink-100">
+                          {hero?.badgeText}
+                        </span>
+                      </div>
+                    </div>
+                  </FloatingGlow>
+                </div>
 
                 {isAdmin && hero && (
                   <SlideUp delay={0.9}>
