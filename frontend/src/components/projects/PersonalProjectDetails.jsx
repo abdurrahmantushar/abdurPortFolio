@@ -305,7 +305,7 @@ const PersonalProjectDetails = () => {
                   className="flex items-center gap-2 rounded-xl border border-red-500/20 bg-red-500/10 px-4 py-2.5 text-xs font-semibold text-red-300 transition hover:bg-red-500/20"
                 >
                   <FaTrash size={11} />
-                  Delete Project
+                  Delete Project!
                 </button>
               </div>
             )}
