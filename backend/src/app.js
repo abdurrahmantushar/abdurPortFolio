@@ -42,4 +42,8 @@ app.use("/api/project-folder", ProjectFolder_Route);
 
 ConnectDB();
 
+app.listen(4501, () => {
+  console.log("Server running on port 4501");
+});
+
 export default app;

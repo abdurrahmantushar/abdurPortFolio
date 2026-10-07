@@ -17,6 +17,7 @@ import PageLines from "../../animations/FallingParticles";
 
 const ProjectCard = ({ project, onDelete, onEdit }) => {
   const [isAdmin] = useState(localStorage.getItem("role") === "admin");
+  
 
   const handleDelete = async () => {
     const confirmDelete = window.confirm(
@@ -74,14 +75,18 @@ const ProjectCard = ({ project, onDelete, onEdit }) => {
 
         <div className="mt-5 flex flex-wrap items-center gap-3">
           <ProjectButtonAnimation>
-    <Link
-      to={`/projects/professional/${project.folderId?._id}/${project._id}`}
-      state={{ project }}
-      className="flex items-center gap-2 rounded-xl bg-purple-600 px-4 py-2.5 text-xs font-semibold text-white transition hover:bg-purple-500"
-    >
-      View More
-      <FaArrowRight size={11} />
-    </Link>
+<Link
+  to={
+    project.category === "personal"
+      ? `/projects/personal/${project._id}`
+      : `/projects/professional/${project.folderId?._id}/${project._id}`
+  }
+  state={{ project }}
+  className="flex items-center gap-2 rounded-xl bg-purple-600 px-4 py-2.5 text-xs font-semibold text-white transition hover:bg-purple-500"
+>
+  View More
+  <FaArrowRight size={11} />
+</Link>
           </ProjectButtonAnimation>
 
           <ProjectButtonAnimation>

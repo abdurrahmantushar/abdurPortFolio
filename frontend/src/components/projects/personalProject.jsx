@@ -18,6 +18,7 @@ export const PersonalProject = () => {
   const [isAdmin, setIsAdmin] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [editProject, setEditProject] = useState(null);
 
   const [formData, setFormData] = useState({
     title: "",
@@ -59,31 +60,35 @@ export const PersonalProject = () => {
     });
   };
 
-  const handleCreateProject = async (e) => {
-    e.preventDefault();
+const handleCreateProject = async (e) => {
+  e.preventDefault();
 
-    try {
-      const data = new FormData();
+  try {
+    const data = new FormData();
 
-      data.append("title", formData.title);
-      data.append("description", formData.description);
-      data.append(
-        "technologies",
-        JSON.stringify(
-          formData.technologies
-            .split(",")
-            .map((tech) => tech.trim())
-            .filter(Boolean)
-        )
-      );
-      data.append("liveLink", formData.liveLink);
-      data.append("githubLink", formData.githubLink);
-      data.append("category", "personal");
-      data.append("image", formData.image);
+    data.append("title", formData.title);
+    data.append("description", formData.description);
+    data.append(
+      "technologies",
+      JSON.stringify(
+        formData.technologies
+          .split(",")
+          .map((tech) => tech.trim())
+          .filter(Boolean)
+      )
+    );
+    data.append("liveLink", formData.liveLink);
+    data.append("githubLink", formData.githubLink);
+    data.append("category", "personal");
+
+    if (editProject) {
+      if (formData.image) {
+        data.append("image", formData.image);
+      }
 
       const res = await Axios({
-        url: SummaryApi.project.url,
-        method: "post",
+        url: `/api/project/${editProject._id}`,
+        method: "put",
         data,
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -91,7 +96,14 @@ export const PersonalProject = () => {
       });
 
       if (res.data.success) {
-        setProjects((prev) => [res.data.data, ...prev]);
+        setProjects((prev) =>
+          prev.map((project) =>
+            project._id === editProject._id ? res.data.data : project
+          )
+        );
+
+        setEditProject(null);
+        setModalOpen(false);
 
         setFormData({
           title: "",
@@ -101,13 +113,59 @@ export const PersonalProject = () => {
           githubLink: "",
           image: null,
         });
-
-        setModalOpen(false);
       }
-    } catch (error) {
-      console.log(error);
+
+      return;
     }
-  };
+
+    if (!formData.image) return;
+
+    data.append("image", formData.image);
+
+    const res = await Axios({
+      url: SummaryApi.project.url,
+      method: "post",
+      data,
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    });
+
+    if (res.data.success) {
+      setProjects((prev) => [res.data.data, ...prev]);
+
+      setFormData({
+        title: "",
+        description: "",
+        technologies: "",
+        liveLink: "",
+        githubLink: "",
+        image: null,
+      });
+
+      setModalOpen(false);
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+  const handleEdit = (project) => {
+  setEditProject(project);
+
+  setFormData({
+    title: project.title || "",
+    description: project.description || "",
+    technologies: Array.isArray(project.technologies)
+      ? project.technologies.join(", ")
+      : project.technologies || "",
+    liveLink: project.liveLink || "",
+    githubLink: project.githubLink || "",
+    image: null,
+  });
+
+  setModalOpen(true);
+};
 
   const handleDelete = (id) => {
     setProjects((prev) => prev.filter((project) => project._id !== id));
@@ -196,7 +254,7 @@ export const PersonalProject = () => {
                 <ProjectCard
                   project={project}
                   onDelete={handleDelete}
-                  onEdit={() => {}}
+                  onEdit={handleEdit}
                 />
               </PersonalProjectCardAnimation>
             ))}
@@ -227,14 +285,17 @@ export const PersonalProject = () => {
                   Personal Project
                 </p>
 
-                <h2 className="mt-1 text-2xl font-bold text-white">
-                  Create Project
-                </h2>
+              <h2 className="mt-1 text-2xl font-bold text-white">
+                {editProject ? "Edit Project" : "Create Project"}
+              </h2>
               </div>
 
               <button
                 type="button"
-                onClick={() => setModalOpen(false)}
+                onClick={() => {
+                  setModalOpen(false);
+                  setEditProject(null);
+                }}
                 className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-gray-400 transition hover:bg-white/10 hover:text-white"
               >
                 <FaTimes size={14} />
@@ -248,7 +309,7 @@ export const PersonalProject = () => {
                 placeholder="Project title"
                 value={formData.title}
                 onChange={handleChange}
-                required
+                
                 className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none placeholder:text-gray-500 focus:border-purple-500"
               />
 
@@ -257,7 +318,7 @@ export const PersonalProject = () => {
                 placeholder="Project description"
                 value={formData.description}
                 onChange={handleChange}
-                required
+                
                 rows="4"
                 className="w-full resize-none rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none placeholder:text-gray-500 focus:border-purple-500"
               />
@@ -268,7 +329,7 @@ export const PersonalProject = () => {
                 placeholder="Technologies: React, Node.js, MongoDB"
                 value={formData.technologies}
                 onChange={handleChange}
-                required
+                
                 className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none placeholder:text-gray-500 focus:border-purple-500"
               />
 
@@ -278,7 +339,7 @@ export const PersonalProject = () => {
                 placeholder="Live project link"
                 value={formData.liveLink}
                 onChange={handleChange}
-                required
+                
                 className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none placeholder:text-gray-500 focus:border-purple-500"
               />
 
@@ -288,7 +349,7 @@ export const PersonalProject = () => {
                 placeholder="GitHub repository link"
                 value={formData.githubLink}
                 onChange={handleChange}
-                required
+                
                 className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none placeholder:text-gray-500 focus:border-purple-500"
               />
 
@@ -302,17 +363,18 @@ export const PersonalProject = () => {
                   name="image"
                   accept="image/*"
                   onChange={handleChange}
-                  required
+                  
                   className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-gray-400 file:mr-4 file:rounded-lg file:border-0 file:bg-purple-600 file:px-3 file:py-2 file:text-xs file:font-semibold file:text-white hover:file:bg-purple-500"
                 />
               </div>
 
-              <button
-                type="submit"
-                className="w-full rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 px-5 py-3 text-sm font-semibold text-white transition hover:opacity-90"
-              >
-                Create Project
-              </button>
+            <button
+              type="submit"
+              className="w-full rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 px-5 py-3 text-sm font-semibold text-white transition hover:opacity-90"
+            >
+              {editProject ? "Update Project" : "Create Project"}
+            </button>
+
             </form>
           </div>
         </div>

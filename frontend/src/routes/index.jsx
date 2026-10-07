@@ -8,6 +8,7 @@ import ProjectLayout from "../components/projects/projectLayout";
 import AdminLogin from "../common/AdminLogin";
 import ProfessionalProjectDetails from "../components/projects/ProfessionalProjectDeatils";
 import { ProjectDetails } from "../components/projects/ProjectDetails";
+import PersonalProjectDetails from "../components/projects/PersonalProjectDetails";
 
 export const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ export const router = createBrowserRouter([
       {  
         path:"/projects/professional/:folderId/:projectId",
         element :<ProjectDetails/>
+      },
+      {
+        path :"/projects/personal/:projectId",
+        element: <PersonalProjectDetails/>
       },
       
       {
