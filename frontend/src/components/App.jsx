@@ -7,6 +7,7 @@ import { Contact } from "./layout/contact"
 import { ProjectPage } from "./projects"
 import { Footer } from "./layout/Footer"
 import PageLines from "../animations/FallingParticles"
+import CertificateSection from "./Certificates"
 
 export const Components = () => {
     return (
@@ -34,6 +35,10 @@ export const Components = () => {
 
                 <section id="project">
                     <ProjectPage />
+                </section>
+
+                <section>
+                    <CertificateSection/>
                 </section>
 
                 <section id="contact">
