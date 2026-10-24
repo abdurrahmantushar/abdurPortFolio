@@ -88,13 +88,19 @@ export const Navbar = () => {
               <span className="absolute bottom-1 left-4 right-4 h-[2px] origin-left scale-x-0 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 transition-transform duration-300 group-hover:scale-x-100" />
             </button>
 
-            <Link
-              to="/projects"
-              className="group relative rounded-xl px-4 py-2.5 text-sm font-medium text-gray-400 transition-all duration-300 hover:bg-white/5 hover:text-white"
+              <button
+              onClick={() => scroll("projects")}
+              className="flex w-full rounded-xl px-4 py-3 text-left text-sm font-medium text-gray-400 transition-all duration-300 hover:bg-purple-500/10 hover:text-white"
             >
               Projects
-              <span className="absolute bottom-1 left-4 right-4 h-[2px] origin-left scale-x-0 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 transition-transform duration-300 group-hover:scale-x-100" />
-            </Link>
+            </button>
+
+            <button
+              onClick={() => scroll("certificates")}
+              className="flex w-full rounded-xl px-4 py-3 text-left text-sm font-medium text-gray-400 transition-all duration-300 hover:bg-purple-500/10 hover:text-white"
+            >
+              Certificates
+            </button>
 
             <button
               onClick={() => scroll("services")}
@@ -153,14 +159,6 @@ export const Navbar = () => {
               About
             </button>
 
-            <Link
-              to="/projects"
-              onClick={() => setIsOpen(false)}
-              className="flex w-full rounded-xl px-4 py-3 text-left text-sm font-medium text-gray-400 transition-all duration-300 hover:bg-purple-500/10 hover:text-white"
-            >
-              Projects
-            </Link>
-
             <button
               onClick={() => scroll("services")}
               className="flex w-full rounded-xl px-4 py-3 text-left text-sm font-medium text-gray-400 transition-all duration-300 hover:bg-purple-500/10 hover:text-white"
@@ -173,6 +171,20 @@ export const Navbar = () => {
               className="flex w-full rounded-xl px-4 py-3 text-left text-sm font-medium text-gray-400 transition-all duration-300 hover:bg-purple-500/10 hover:text-white"
             >
               Resume
+            </button>
+
+              <button
+              onClick={() => scroll("projects")}
+              className="flex w-full rounded-xl px-4 py-3 text-left text-sm font-medium text-gray-400 transition-all duration-300 hover:bg-purple-500/10 hover:text-white"
+            >
+              Projects
+            </button>            
+
+            <button
+              onClick={() => scroll("certificates")}
+              className="flex w-full rounded-xl px-4 py-3 text-left text-sm font-medium text-gray-400 transition-all duration-300 hover:bg-purple-500/10 hover:text-white"
+            >
+              Certificates
             </button>
 
             <div className="pt-3">
