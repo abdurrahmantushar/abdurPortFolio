@@ -10,6 +10,7 @@ import Hero_Route from "./routes/Hero_Route.js";
 import Admin_Route from "./routes/Admin_Route.js";
 import ProjectFolder_Route from "./routes/ProjectFolder_Route.js";
 import CertificateRoute from "./routes/Certificate_Route.js";
+import PortfolioChat_Route from "./routes/PortfolioChat_Route.js";
 
 export const app = express();
 
@@ -41,6 +42,7 @@ app.use("/api/study", Study_Route);
 app.use("/api/admin", Admin_Route);
 app.use("/api/project-folder", ProjectFolder_Route);
 app.use("/api/certificates", CertificateRoute);
+app.use("/api/portfolio-chat", PortfolioChat_Route);
 
 ConnectDB();
 
