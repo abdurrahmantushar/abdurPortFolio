@@ -23,6 +23,7 @@ export const CreateProject = async (req, res) => {
       liveLink: req.body.liveLink,
       githubLink: req.body.githubLink,
       category: req.body.category,
+      courseName: req.body.courseName || "",
       folderId: req.body.folderId || null,
     });
 
@@ -68,6 +69,7 @@ export const UpdateProject = async (req, res) => {
       liveLink: req.body.liveLink,
       githubLink: req.body.githubLink,
       category: req.body.category,
+      courseName: req.body.courseName || "",  
       folderId: req.body.folderId || null,
     };
 

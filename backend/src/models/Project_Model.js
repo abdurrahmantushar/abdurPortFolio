@@ -20,7 +20,11 @@ const ProjectSchema = new mongoose.Schema(
     },
     liveLink: {
       type: String,
-      required: true,
+      default: '',
+    },
+    courseName: {
+      type: String,
+      default: "",
     },
     githubLink: {
       type: String,
@@ -29,7 +33,7 @@ const ProjectSchema = new mongoose.Schema(
     category: {
       type: String,
       required: true,
-      enum: ["personal", "professional"],
+      enum: ["personal", "professional", "course"],
     },
     folderId: {
       type: mongoose.Schema.Types.ObjectId,

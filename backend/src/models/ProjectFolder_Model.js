@@ -13,7 +13,7 @@ const ProjectFolderSchema = new mongoose.Schema(
     category: {
       type: String,
       required: true,
-      enum: ["personal", "professional"],
+      enum: ["personal", "professional", "course"],
     },
     duration: {
       type: String,
